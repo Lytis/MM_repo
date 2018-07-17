@@ -10,6 +10,7 @@
       <TargetName>MM_v1.0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -47,7 +48,7 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>MM_v1.0\</OutputDirectory>
+          <OutputDirectory>.\MM_v1.0\</OutputDirectory>
           <OutputName>MM_v1.0</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
@@ -133,11 +134,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4107</DriverSelection>
+            <DriverSelection>4100</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>STLink\ST-LINKIII-KEIL_SWO.dll</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -335,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F446xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../MM_app</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -387,11 +388,38 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>::CMSIS</GroupName>
-        </Group>
-        <Group>
           <GroupName>Application/User</GroupName>
           <Files>
+            <File>
+              <FileName>MM_app_storage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MM_app\MM_app_storage.c</FilePath>
+            </File>
+            <File>
+              <FileName>MM_app_storage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MM_app\MM_app_storage.h</FilePath>
+            </File>
+            <File>
+              <FileName>MM_app_sampling.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MM_app\MM_app_sampling.c</FilePath>
+            </File>
+            <File>
+              <FileName>MM_app_sampling.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MM_app\MM_app_sampling.h</FilePath>
+            </File>
+            <File>
+              <FileName>MM_app_transmit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MM_app\MM_app_transmit.c</FilePath>
+            </File>
+            <File>
+              <FileName>MM_app_transmit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MM_app\MM_app_transmit.h</FilePath>
+            </File>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
@@ -406,6 +434,16 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/stm32f4xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>MM_app_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MM_app\MM_app_control.c</FilePath>
+            </File>
+            <File>
+              <FileName>MM_app_control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MM_app\MM_app_control.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -518,6 +556,9 @@
               <FilePath>..//Src/system_stm32f4xx.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>

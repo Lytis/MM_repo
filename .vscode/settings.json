@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "mm_app_sampling.h": "c",
+        "mm_app_transmit.h": "c",
+        "mm_app_control.h": "c"
+    }
+}
