@@ -43,6 +43,8 @@ void app_control_function(void)
         }
     }
 
+    app_control_init();
+
 }
 
 

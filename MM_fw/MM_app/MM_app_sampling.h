@@ -4,7 +4,10 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 
-#define PACKET_SIZE     480*8
+
+#define SAMPLES_PER_MIC         32
+#define SAMPLE_PACKET_SIZE      SAMPLES_PER_MIC*8
+
 
 
 void sampling_init(void);

@@ -211,7 +211,6 @@ void DMA2_Stream1_IRQHandler(void)
   HAL_DMA_IRQHandler(&hdma_sai1_a);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
 
-  packet_recieve_event();
 
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }
@@ -256,6 +255,8 @@ void DMA2_Stream5_IRQHandler(void)
   /* USER CODE END DMA2_Stream5_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart1_rx);
   /* USER CODE BEGIN DMA2_Stream5_IRQn 1 */
+
+  app_control_function();
 
   /* USER CODE END DMA2_Stream5_IRQn 1 */
 }
