@@ -11,6 +11,9 @@
 
 #define AUXILIARY_UART  1
 
+// UART6 is the main
+// USART1 is the aux
+
 void app_control_init(void);
 void app_control_function(void);
 

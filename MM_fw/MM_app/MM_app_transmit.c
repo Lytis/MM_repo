@@ -6,7 +6,6 @@ extern SPI_HandleTypeDef hspi2;
 
 static SPI_HandleTypeDef spiPort;
 
-int16_t tranmition_packet[SAMPLES_PER_MIC * PACKETS_PER_TRANSMITION]
 
 
 
@@ -22,8 +21,10 @@ void transmit_init(void)
 
 }
 
-void transmit_packet(void)
+void transmit_packet(int16_t* buffer)
 {
+
+    while (HAL_OK != HAL_SPI_Transmit_DMA(&spiPort, (uint8_t)buffer, SAMPLES_PER_MIC * PACKETS_PER_TRANSMITION));
 
 }
 

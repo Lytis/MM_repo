@@ -6,12 +6,13 @@
 
 
 #define SAMPLES_PER_MIC         32
-#define SAMPLE_PACKET_SIZE      SAMPLES_PER_MIC*8
-
+#define SAI_BUFFER_SIZE         SAMPLES_PER_MIC*8
 
 
 void sampling_init(void);
-void packet_recieve_event(void);
+
+void half_transfer_event(void);
+void full_transfer_event(void);
 
 
 #endif
