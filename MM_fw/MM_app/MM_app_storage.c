@@ -1,5 +1,8 @@
 #include "MM_app_storage.h"
 
+#include "MM_app_transmit.h"
+#include "main.h"
+#include "stm32f4xx_hal.h"
 
 static int16_t *p_store_buffer = NULL, *p_transmit_buffer = NULL;
 static int16_t *temp_buffer_1 = NULL, *temp_buffer_2 = NULL, *transmit_buffer = NULL;
@@ -33,8 +36,6 @@ void push_samples(int32_t *p_SAI_buffer, int samples)
 
     sub_packets_counter++;
 
-    transmit_packet(transmit_buffer);
-
     if (sub_packets_counter >= SUB_PACKETS)
     {
         sub_packets_counter = 0;
@@ -51,6 +52,8 @@ void push_samples(int32_t *p_SAI_buffer, int samples)
             temp_buffer_1 = p_buffer_1;
             transmit_buffer = p_buffer_2;
         }
+
+    transmit_packet(transmit_buffer);
     }
 
 }
