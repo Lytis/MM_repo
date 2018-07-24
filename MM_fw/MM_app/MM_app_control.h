@@ -5,9 +5,9 @@
 #include "stm32f4xx_hal.h"
 
 
-#define START   0x01
-#define STOP    0x02
-#define RESET   0x03
+#define START   '1'
+#define STOP    '2'
+#define RESET   '3'
 
 #define AUXILIARY_UART  1
 

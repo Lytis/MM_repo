@@ -31,4 +31,3 @@
 .\mm_v1.0\stm32f4xx_hal_sai_ex.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai_ex.h
 .\mm_v1.0\stm32f4xx_hal_sai_ex.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 .\mm_v1.0\stm32f4xx_hal_sai_ex.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-.\mm_v1.0\stm32f4xx_hal_sai_ex.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h

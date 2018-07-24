@@ -31,7 +31,6 @@
 .\mm_v1.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai_ex.h
 .\mm_v1.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 .\mm_v1.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-.\mm_v1.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h
 .\mm_v1.0\main.o: ../MM_app/MM_app_sampling.h
 .\mm_v1.0\main.o: ../MM_app/MM_app_transmit.h
 .\mm_v1.0\main.o: ../MM_app/MM_app_control.h

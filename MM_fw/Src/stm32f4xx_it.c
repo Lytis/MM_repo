@@ -40,6 +40,9 @@
 #include "MM_app_sampling.h"
 #include "MM_app_control.h"
 
+extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart6;
+
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -211,7 +214,6 @@ void DMA2_Stream1_IRQHandler(void)
   HAL_DMA_IRQHandler(&hdma_sai1_a);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
 
-
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }
 
@@ -225,8 +227,6 @@ void DMA2_Stream2_IRQHandler(void)
   /* USER CODE END DMA2_Stream2_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart6_rx);
   /* USER CODE BEGIN DMA2_Stream2_IRQn 1 */
-
-  app_control_function();
 
   /* USER CODE END DMA2_Stream2_IRQn 1 */
 }

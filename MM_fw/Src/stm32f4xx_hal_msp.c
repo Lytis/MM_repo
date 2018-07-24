@@ -208,11 +208,11 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
 
 }
 
-void HAL_USART_MspInit(USART_HandleTypeDef* husart)
+void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 {
 
   GPIO_InitTypeDef GPIO_InitStruct;
-  if(husart->Instance==USART1)
+  if(huart->Instance==USART1)
   {
   /* USER CODE BEGIN USART1_MspInit 0 */
 
@@ -221,13 +221,12 @@ void HAL_USART_MspInit(USART_HandleTypeDef* husart)
     __HAL_RCC_USART1_CLK_ENABLE();
   
     /**USART1 GPIO Configuration    
-    PA8     ------> USART1_CK
     PA9     ------> USART1_TX
     PA10     ------> USART1_RX 
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
+    GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_10;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -249,7 +248,7 @@ void HAL_USART_MspInit(USART_HandleTypeDef* husart)
       _Error_Handler(__FILE__, __LINE__);
     }
 
-    __HAL_LINKDMA(husart,hdmarx,hdma_usart1_rx);
+    __HAL_LINKDMA(huart,hdmarx,hdma_usart1_rx);
 
     /* USART1_TX Init */
     hdma_usart1_tx.Instance = DMA2_Stream7;
@@ -267,20 +266,13 @@ void HAL_USART_MspInit(USART_HandleTypeDef* husart)
       _Error_Handler(__FILE__, __LINE__);
     }
 
-    __HAL_LINKDMA(husart,hdmatx,hdma_usart1_tx);
+    __HAL_LINKDMA(huart,hdmatx,hdma_usart1_tx);
 
   /* USER CODE BEGIN USART1_MspInit 1 */
 
   /* USER CODE END USART1_MspInit 1 */
   }
-
-}
-
-void HAL_UART_MspInit(UART_HandleTypeDef* huart)
-{
-
-  GPIO_InitTypeDef GPIO_InitStruct;
-  if(huart->Instance==USART6)
+  else if(huart->Instance==USART6)
   {
   /* USER CODE BEGIN USART6_MspInit 0 */
 
@@ -342,10 +334,10 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 
 }
 
-void HAL_USART_MspDeInit(USART_HandleTypeDef* husart)
+void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 {
 
-  if(husart->Instance==USART1)
+  if(huart->Instance==USART1)
   {
   /* USER CODE BEGIN USART1_MspDeInit 0 */
 
@@ -354,26 +346,19 @@ void HAL_USART_MspDeInit(USART_HandleTypeDef* husart)
     __HAL_RCC_USART1_CLK_DISABLE();
   
     /**USART1 GPIO Configuration    
-    PA8     ------> USART1_CK
     PA9     ------> USART1_TX
     PA10     ------> USART1_RX 
     */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_9|GPIO_PIN_10);
 
     /* USART1 DMA DeInit */
-    HAL_DMA_DeInit(husart->hdmarx);
-    HAL_DMA_DeInit(husart->hdmatx);
+    HAL_DMA_DeInit(huart->hdmarx);
+    HAL_DMA_DeInit(huart->hdmatx);
   /* USER CODE BEGIN USART1_MspDeInit 1 */
 
   /* USER CODE END USART1_MspDeInit 1 */
   }
-
-}
-
-void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
-{
-
-  if(huart->Instance==USART6)
+  else if(huart->Instance==USART6)
   {
   /* USER CODE BEGIN USART6_MspDeInit 0 */
 
