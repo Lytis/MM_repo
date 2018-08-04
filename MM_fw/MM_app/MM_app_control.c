@@ -36,6 +36,7 @@ void app_control_function(void)
         {
             if (AUXILIARY_UART==1)
                 HAL_UART_Transmit(&huart1, (uint8_t*)msg_START, sizeof(msg_START), 0xFFFF);
+                sampling_init();
             break;
         }
         case STOP:

@@ -24,12 +24,12 @@ void storage_init(void)
 
 }
 
-void push_samples(int32_t *p_SAI_buffer, int samples)
+void push_samples(int32_t *p_SAI_buffer)
 {
 
     int i;
 
-    for (i=0; i<samples; i++)
+    for (i=0; i<SAI_BUFFER_SIZE; i++)
     {
         *temp_buffer_1 = *p_SAI_buffer;
         p_SAI_buffer++;

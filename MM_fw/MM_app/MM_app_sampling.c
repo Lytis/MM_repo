@@ -18,7 +18,7 @@ void sampling_init()
 void half_transfer_event()
 {
 
-    push_samples(p_firstHalf);
+    push_samples(p_firstHalf, SAI_BUFFER_SIZE/2);
 
 }
 

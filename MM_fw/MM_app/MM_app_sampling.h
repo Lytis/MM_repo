@@ -8,6 +8,13 @@
 #define SAMPLES_PER_MIC         32
 #define SAI_BUFFER_SIZE         SAMPLES_PER_MIC*8
 
+/*
+sample window time = samples/sampliung frequency
+ (now it is 8k)
+ 32/8k = 4msec
+
+ */
+
 
 void sampling_init(void);
 

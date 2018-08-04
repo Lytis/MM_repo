@@ -291,5 +291,15 @@ void DMA2_Stream7_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
+void HAL_SAI_RxCpltCallback(&hsai_BlockA1)
+{
+  full_transfer_event();
+}
+
+void HAL_SAI_RxHalfCpltCallback(&hsai_BlockA1)
+{
+  half_transfer_event();
+}
+
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
