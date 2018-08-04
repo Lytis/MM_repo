@@ -124,12 +124,14 @@ int main(void)
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
 
-
   uint8_t msg[] = "app_start\n\r";
   HAL_UART_Transmit(&huart1, (uint8_t*)msg, sizeof(msg), 0xFFFF);
 
-  //sampling_init();
   app_control_init();
+
+/*   int32_t SAI_test_buffer[SAI_BUFFER_SIZE];
+  HAL_UART_Transmit(&huart1, (uint8_t*)"test1\n\r", sizeof("test1\n\r"), 0xFFFF);
+  HAL_SAI_Receive_DMA(&hsai_BlockA1, (uint8_t*)SAI_test_buffer, SAI_BUFFER_SIZE*4); */
 
 
 

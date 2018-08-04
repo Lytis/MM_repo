@@ -39,14 +39,16 @@
 
 #include "MM_app_sampling.h"
 #include "MM_app_control.h"
+#include "MM_app_storage.h"
 
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart6;
-
+extern SAI_HandleTypeDef hsai_BlockA1;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_sai1_a;
+extern SAI_HandleTypeDef hsai_BlockA1;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern DMA_HandleTypeDef hdma_usart1_tx;
@@ -214,6 +216,9 @@ void DMA2_Stream1_IRQHandler(void)
   HAL_DMA_IRQHandler(&hdma_sai1_a);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
 
+  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
+
+
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }
 
@@ -289,17 +294,27 @@ void DMA2_Stream7_IRQHandler(void)
   /* USER CODE END DMA2_Stream7_IRQn 1 */
 }
 
+/**
+* @brief This function handles SAI1 global interrupt.
+*/
+void SAI1_IRQHandler(void)
+{
+  /* USER CODE BEGIN SAI1_IRQn 0 */
+
+  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
+
+  /* USER CODE END SAI1_IRQn 0 */
+  HAL_SAI_IRQHandler(&hsai_BlockA1);
+  /* USER CODE BEGIN SAI1_IRQn 1 */
+
+  
+
+  /* USER CODE END SAI1_IRQn 1 */
+}
+
 /* USER CODE BEGIN 1 */
 
-void HAL_SAI_RxCpltCallback(&hsai_BlockA1)
-{
-  full_transfer_event();
-}
 
-void HAL_SAI_RxHalfCpltCallback(&hsai_BlockA1)
-{
-  half_transfer_event();
-}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

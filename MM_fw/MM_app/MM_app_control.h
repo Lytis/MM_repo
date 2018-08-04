@@ -1,8 +1,14 @@
 #ifndef MM_APP_CONTROL_H_
 #define MM_APP_CONTROL_H_
 
+#include <stdbool.h>
 #include "main.h"
 #include "stm32f4xx_hal.h"
+
+
+#include "MM_app_sampling.h"
+#include "MM_app_storage.h"
+#include "MM_app_transmit.h"
 
 
 #define START   '1'

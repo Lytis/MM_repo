@@ -4,6 +4,9 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 
+#include "MM_app_control.h"
+#include "MM_app_storage.h"
+#include "MM_app_transmit.h"
 
 #define SAMPLES_PER_MIC         32
 #define SAI_BUFFER_SIZE         SAMPLES_PER_MIC*8
@@ -17,6 +20,8 @@ sample window time = samples/sampliung frequency
 
 
 void sampling_init(void);
+void sampling_pause(void);
+void sampling_resume(void);
 
 void half_transfer_event(void);
 void full_transfer_event(void);

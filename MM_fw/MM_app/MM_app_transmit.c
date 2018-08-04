@@ -1,15 +1,12 @@
 #include "MM_app_transmit.h"
 
-#include "main.h"
-#include "stm32f4xx_hal.h"
-#include "MM_app_storage.h"
-
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi2;
 
 static SPI_HandleTypeDef spiPort;
 
-int16_t *testing_buffer
+int16_t *testing_buffer = NULL;
+int16_t testing_buffer_1[TRANSMIT_PACKET_SIZE];
 
 
 void transmit_init(void)
@@ -24,7 +21,11 @@ void transmit_init(void)
 
     if (TEST_BUFFER == 1)
     {
-        testing_buffer = (int16_t*)malloc(TRANSMIT_PACKET_SIZE * (sizeof(int16_t)));
+		int i;
+
+        /* testing_buffer = (int16_t *)malloc((int)TRANSMIT_PACKET_SIZE*sizeof(int16_t)); */
+
+        testing_buffer = testing_buffer_1;
         for (i=0; i<TRANSMIT_PACKET_SIZE; i++)
         {
             *testing_buffer = (int16_t)i;

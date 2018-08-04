@@ -1,16 +1,18 @@
 #include "MM_app_control.h"
 
-
 static uint8_t command;
 
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart6;
 
 uint8_t msg_START[] = "START\n\r",
+        msg_RUNNING[] = "APP_RUNNING\n\r",
         msg_STOP[] = "STOP\n\r",
         msg_RESET[] = "RESET\n\r",
         msg_ERROR[] = "ERROR\n\r";
 
+
+bool app_started = false;
 
 void app_control_init(void)
 {
@@ -34,9 +36,21 @@ void app_control_function(void)
     {
         case START:
         {
-            if (AUXILIARY_UART==1)
-                HAL_UART_Transmit(&huart1, (uint8_t*)msg_START, sizeof(msg_START), 0xFFFF);
+            if (app_started == false)
+            {
+                if (AUXILIARY_UART==1)
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_START, sizeof(msg_START), 0xFFFF);
+                storage_init();
+                transmit_init();
                 sampling_init();
+                app_started = true;
+            }
+            else
+            {
+                if (AUXILIARY_UART==1)
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_RUNNING, sizeof(msg_RUNNING), 0xFFFF);
+            }
+
             break;
         }
         case STOP:
