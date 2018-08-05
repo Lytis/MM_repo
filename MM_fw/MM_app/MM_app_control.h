@@ -13,7 +13,8 @@
 
 #define START   '1'
 #define STOP    '2'
-#define RESET   '3'
+#define RESUME  '3'
+#define RESET   '4'
 
 #define AUXILIARY_UART  1
 

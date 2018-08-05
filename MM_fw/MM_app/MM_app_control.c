@@ -8,11 +8,13 @@ extern UART_HandleTypeDef huart6;
 uint8_t msg_START[] = "START\n\r",
         msg_RUNNING[] = "APP_RUNNING\n\r",
         msg_STOP[] = "STOP\n\r",
+        msg_RESUME[] = "RESUME\n\r",
         msg_RESET[] = "RESET\n\r",
         msg_ERROR[] = "ERROR\n\r";
 
 
 bool app_started = false;
+bool app_paused = false;
 
 void app_control_init(void)
 {
@@ -55,8 +57,25 @@ void app_control_function(void)
         }
         case STOP:
         {
+            if ((app_started == true)&&(app_paused == false))
+            {
+                sampling_pause();
+                app_paused = true;
+            }
+            
             if (AUXILIARY_UART==1)
                 HAL_UART_Transmit(&huart1, (uint8_t*)msg_STOP, sizeof(msg_STOP), 0xFFFF);
+            break;
+        }
+        case RESUME:
+        {
+            if ((app_started == true)&&(app_paused == true))
+            {
+                sampling_resume();
+                app_paused = false;
+            }
+            if (AUXILIARY_UART==1)
+                HAL_UART_Transmit(&huart1, (uint8_t*)msg_RESUME, sizeof(msg_RESUME), 0xFFFF);
             break;
         }
         case RESET:
