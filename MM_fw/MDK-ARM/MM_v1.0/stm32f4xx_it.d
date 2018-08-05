@@ -34,3 +34,10 @@
 .\mm_v1.0\stm32f4xx_it.o: ../Inc/stm32f4xx_it.h
 .\mm_v1.0\stm32f4xx_it.o: ../MM_app/MM_app_sampling.h
 .\mm_v1.0\stm32f4xx_it.o: ../MM_app/MM_app_control.h
+.\mm_v1.0\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\mm_v1.0\stm32f4xx_it.o: ../MM_app/MM_app_sampling.h
+.\mm_v1.0\stm32f4xx_it.o: ../MM_app/MM_app_storage.h
+.\mm_v1.0\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\mm_v1.0\stm32f4xx_it.o: ../MM_app/MM_app_control.h
+.\mm_v1.0\stm32f4xx_it.o: ../MM_app/MM_app_transmit.h
+.\mm_v1.0\stm32f4xx_it.o: ../MM_app/MM_app_storage.h

@@ -1,5 +1,6 @@
 .\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_storage.c
 .\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_storage.h
+.\mm_v1.0\mm_app_storage.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\mm_v1.0\mm_app_storage.o: ../Inc/main.h
 .\mm_v1.0\mm_app_storage.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 .\mm_v1.0\mm_app_storage.o: ../Inc/stm32f4xx_hal_conf.h
@@ -32,5 +33,10 @@
 .\mm_v1.0\mm_app_storage.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai_ex.h
 .\mm_v1.0\mm_app_storage.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 .\mm_v1.0\mm_app_storage.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+.\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_control.h
+.\mm_v1.0\mm_app_storage.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_sampling.h
+.\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_control.h
+.\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_storage.h
 .\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_transmit.h
+.\mm_v1.0\mm_app_storage.o: ..\MM_app\MM_app_sampling.h

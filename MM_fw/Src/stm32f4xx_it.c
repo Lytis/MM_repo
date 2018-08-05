@@ -50,6 +50,9 @@ extern SAI_HandleTypeDef hsai_BlockA1;
 extern DMA_HandleTypeDef hdma_sai1_a;
 extern SAI_HandleTypeDef hsai_BlockA1;
 extern DMA_HandleTypeDef hdma_spi1_tx;
+extern DMA_HandleTypeDef hdma_spi2_tx;
+extern SPI_HandleTypeDef hspi1;
+extern SPI_HandleTypeDef hspi2;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern DMA_HandleTypeDef hdma_usart1_tx;
 extern DMA_HandleTypeDef hdma_usart6_rx;
@@ -206,6 +209,48 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+* @brief This function handles DMA1 stream4 global interrupt.
+*/
+void DMA1_Stream4_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Stream4_IRQn 0 */
+
+  /* USER CODE END DMA1_Stream4_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_spi2_tx);
+  /* USER CODE BEGIN DMA1_Stream4_IRQn 1 */
+
+  /* USER CODE END DMA1_Stream4_IRQn 1 */
+}
+
+/**
+* @brief This function handles SPI1 global interrupt.
+*/
+void SPI1_IRQHandler(void)
+{
+  /* USER CODE BEGIN SPI1_IRQn 0 */
+
+  /* USER CODE END SPI1_IRQn 0 */
+  HAL_SPI_IRQHandler(&hspi1);
+  /* USER CODE BEGIN SPI1_IRQn 1 */
+
+  /* USER CODE END SPI1_IRQn 1 */
+}
+
+/**
+* @brief This function handles SPI2 global interrupt.
+*/
+void SPI2_IRQHandler(void)
+{
+  /* USER CODE BEGIN SPI2_IRQn 0 */
+
+  /* USER CODE END SPI2_IRQn 0 */
+  HAL_SPI_IRQHandler(&hspi2);
+  /* USER CODE BEGIN SPI2_IRQn 1 */
+
+  /* USER CODE END SPI2_IRQn 1 */
+}
+
+/**
 * @brief This function handles DMA2 stream1 global interrupt.
 */
 void DMA2_Stream1_IRQHandler(void)
@@ -215,8 +260,6 @@ void DMA2_Stream1_IRQHandler(void)
   /* USER CODE END DMA2_Stream1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_sai1_a);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
-
-  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
 
 
   /* USER CODE END DMA2_Stream1_IRQn 1 */
@@ -301,8 +344,6 @@ void SAI1_IRQHandler(void)
 {
   /* USER CODE BEGIN SAI1_IRQn 0 */
 
-  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
-
   /* USER CODE END SAI1_IRQn 0 */
   HAL_SAI_IRQHandler(&hsai_BlockA1);
   /* USER CODE BEGIN SAI1_IRQn 1 */
@@ -314,7 +355,15 @@ void SAI1_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
+void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
+{
+  //full_transfer_event();
+}
 
+void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
+{
+  //half_transfer_event();
+}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -55,6 +55,7 @@ DMA_HandleTypeDef hdma_sai1_a;
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
 DMA_HandleTypeDef hdma_spi1_tx;
+DMA_HandleTypeDef hdma_spi2_tx;
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart6;
@@ -72,11 +73,12 @@ DMA_HandleTypeDef hdma_usart6_tx;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-static void MX_SAI1_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USART6_UART_Init(void);
+static void MX_SAI1_Init(void);
+static void MX_NVIC_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -117,11 +119,14 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_SAI1_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
   MX_USART1_UART_Init();
   MX_USART6_UART_Init();
+  MX_SAI1_Init();
+
+  /* Initialize interrupts */
+  MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
 
   uint8_t msg[] = "app_start\n\r";
@@ -132,7 +137,6 @@ int main(void)
 /*   int32_t SAI_test_buffer[SAI_BUFFER_SIZE];
   HAL_UART_Transmit(&huart1, (uint8_t*)"test1\n\r", sizeof("test1\n\r"), 0xFFFF);
   HAL_SAI_Receive_DMA(&hsai_BlockA1, (uint8_t*)SAI_test_buffer, SAI_BUFFER_SIZE*4); */
-
 
 
   /* USER CODE END 2 */
@@ -230,6 +234,17 @@ void SystemClock_Config(void)
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
+/**
+  * @brief NVIC Configuration.
+  * @retval None
+  */
+static void MX_NVIC_Init(void)
+{
+  /* SAI1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(SAI1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(SAI1_IRQn);
+}
+
 /* SAI1 init function */
 static void MX_SAI1_Init(void)
 {
@@ -237,13 +252,13 @@ static void MX_SAI1_Init(void)
   hsai_BlockA1.Instance = SAI1_Block_A;
   hsai_BlockA1.Init.Protocol = SAI_FREE_PROTOCOL;
   hsai_BlockA1.Init.AudioMode = SAI_MODEMASTER_RX;
-  hsai_BlockA1.Init.DataSize = SAI_DATASIZE_16;
+  hsai_BlockA1.Init.DataSize = SAI_DATASIZE_24;
   hsai_BlockA1.Init.FirstBit = SAI_FIRSTBIT_MSB;
   hsai_BlockA1.Init.ClockStrobing = SAI_CLOCKSTROBING_FALLINGEDGE;
   hsai_BlockA1.Init.Synchro = SAI_ASYNCHRONOUS;
   hsai_BlockA1.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLE;
   hsai_BlockA1.Init.NoDivider = SAI_MASTERDIVIDER_ENABLE;
-  hsai_BlockA1.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_FULL;
+  hsai_BlockA1.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
   hsai_BlockA1.Init.ClockSource = SAI_CLKSOURCE_NA;
   hsai_BlockA1.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_8K;
   hsai_BlockA1.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
@@ -358,8 +373,12 @@ static void MX_DMA_Init(void)
 {
   /* DMA controller clock enable */
   __HAL_RCC_DMA2_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
+  /* DMA1_Stream4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
   /* DMA2_Stream1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);

@@ -1,0 +1,25 @@
+--cpu=Cortex-M4.fp
+"sai_v1.0\startup_stm32f446xx.o"
+"sai_v1.0\main.o"
+"sai_v1.0\stm32f4xx_it.o"
+"sai_v1.0\stm32f4xx_hal_msp.o"
+"sai_v1.0\stm32f4xx_hal_tim.o"
+"sai_v1.0\stm32f4xx_hal_tim_ex.o"
+"sai_v1.0\stm32f4xx_hal_uart.o"
+"sai_v1.0\stm32f4xx_hal_rcc.o"
+"sai_v1.0\stm32f4xx_hal_rcc_ex.o"
+"sai_v1.0\stm32f4xx_hal_flash.o"
+"sai_v1.0\stm32f4xx_hal_flash_ex.o"
+"sai_v1.0\stm32f4xx_hal_flash_ramfunc.o"
+"sai_v1.0\stm32f4xx_hal_gpio.o"
+"sai_v1.0\stm32f4xx_hal_dma_ex.o"
+"sai_v1.0\stm32f4xx_hal_dma.o"
+"sai_v1.0\stm32f4xx_hal_pwr.o"
+"sai_v1.0\stm32f4xx_hal_pwr_ex.o"
+"sai_v1.0\stm32f4xx_hal_cortex.o"
+"sai_v1.0\stm32f4xx_hal.o"
+"sai_v1.0\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "SAI_v1.0\SAI_v1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "SAI_v1.map" -o SAI_v1.0\SAI_v1.0
