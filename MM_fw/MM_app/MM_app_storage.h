@@ -12,7 +12,7 @@
 
 
 
-#define SUB_PACKETS             8
+#define SUB_PACKETS             2
 #define TRANSMIT_PACKET_SIZE    SAI_BUFFER_SIZE*SUB_PACKETS+1
 
 /* 
@@ -25,3 +25,6 @@ void push_samples(int32_t *);
 
 
 #endif
+
+
+

@@ -29,7 +29,7 @@ void half_transfer_event()
 {
     p_firstHalf = &SAI_buffer[0];
     push_samples((int32_t*)p_firstHalf);
-    HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
+    HAL_GPIO_TogglePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin);
 
 }
 
@@ -37,7 +37,7 @@ void full_transfer_event()
 {
     p_secondHalf = &SAI_buffer[SAI_BUFFER_SIZE/2];
     push_samples((int32_t*)p_secondHalf);
-    HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
+    HAL_GPIO_TogglePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin);
     
 }
 

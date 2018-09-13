@@ -44,11 +44,12 @@
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart6;
 extern SAI_HandleTypeDef hsai_BlockA1;
+
+extern int32_t tempBuffer[64];
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_sai1_a;
-extern SAI_HandleTypeDef hsai_BlockA1;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern DMA_HandleTypeDef hdma_spi2_tx;
 extern SPI_HandleTypeDef hspi1;
@@ -261,7 +262,6 @@ void DMA2_Stream1_IRQHandler(void)
   HAL_DMA_IRQHandler(&hdma_sai1_a);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
 
-
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }
 
@@ -337,32 +337,37 @@ void DMA2_Stream7_IRQHandler(void)
   /* USER CODE END DMA2_Stream7_IRQn 1 */
 }
 
-/**
-* @brief This function handles SAI1 global interrupt.
-*/
-void SAI1_IRQHandler(void)
-{
-  /* USER CODE BEGIN SAI1_IRQn 0 */
-
-  /* USER CODE END SAI1_IRQn 0 */
-  HAL_SAI_IRQHandler(&hsai_BlockA1);
-  /* USER CODE BEGIN SAI1_IRQn 1 */
-
-  
-
-  /* USER CODE END SAI1_IRQn 1 */
-}
-
 /* USER CODE BEGIN 1 */
+
+extern int16_t SPItestBuffer[34];
+extern SPI_HandleTypeDef hspi2;
 
 void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
 {
   //full_transfer_event();
+  SPItestBuffer[0] = 0x5555;
+  SPItestBuffer[33] = 0x5555;
+  int i;
+  for (i=0; i<32; i++)
+  {
+    SPItestBuffer[i+1] = (int16_t) tempBuffer[i];
+  }
+  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
+  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)SPItestBuffer, 34);
 }
 
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
 {
   //half_transfer_event();
+  SPItestBuffer[0] = 0x5555;
+  SPItestBuffer[33] = 0x5555;
+  int i;
+  for (i=0; i<32; i++)
+  {
+    SPItestBuffer[i+1] = (int16_t) tempBuffer[32+i];
+  }
+  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
+  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)SPItestBuffer, 34);
 }
 
 /* USER CODE END 1 */

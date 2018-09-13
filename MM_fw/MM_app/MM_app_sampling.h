@@ -8,7 +8,7 @@
 #include "MM_app_storage.h"
 #include "MM_app_transmit.h"
 
-#define SAMPLES_PER_MIC         32
+#define SAMPLES_PER_MIC         4
 #define SAI_BUFFER_SIZE         SAMPLES_PER_MIC*8
 
 /*
