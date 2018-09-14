@@ -46,6 +46,8 @@ extern UART_HandleTypeDef huart6;
 extern SAI_HandleTypeDef hsai_BlockA1;
 
 extern int32_t tempBuffer[64];
+int16_t transmitBuffer[66];
+
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -339,35 +341,31 @@ void DMA2_Stream7_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 
-extern int16_t SPItestBuffer[34];
 extern SPI_HandleTypeDef hspi2;
 
 void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
 {
   //full_transfer_event();
-  SPItestBuffer[0] = 0x5555;
-  SPItestBuffer[33] = 0x5555;
+
   int i;
   for (i=0; i<32; i++)
   {
-    SPItestBuffer[i+1] = (int16_t) tempBuffer[i];
+    transmitBuffer[i+1] = (int16_t) tempBuffer[i];
   }
-  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
-  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)SPItestBuffer, 34);
 }
 
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
 {
   //half_transfer_event();
-  SPItestBuffer[0] = 0x5555;
-  SPItestBuffer[33] = 0x5555;
+  transmitBuffer[0] = 0x5555;
+  transmitBuffer[65] = 0x5555;
   int i;
   for (i=0; i<32; i++)
   {
-    SPItestBuffer[i+1] = (int16_t) tempBuffer[32+i];
+    transmitBuffer[i+1] = (int16_t) tempBuffer[32+i];
   }
   HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
-  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)SPItestBuffer, 34);
+  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)transmitBuffer, 65);
 }
 
 void HAL_SPI_TxHalfCpltCallback(SPI_HandleTypeDef * hspi)

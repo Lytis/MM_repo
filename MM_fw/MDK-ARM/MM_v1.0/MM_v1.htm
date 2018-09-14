@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\MM_v1.0\MM_v1.0]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\MM_v1.0\MM_v1.0</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Sep 14 11:32:01 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Sep 14 17:08:58 2018
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -494,8 +494,8 @@ Global Symbols
 <P><STRONG><a name="[7]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f446xx.o(RESET)
 </UL>
-<P><STRONG><a name="[98]"></a>HAL_DMA_Abort_IT</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, stm32f4xx_hal_dma.o(i.HAL_DMA_Abort_IT))
-<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
+<P><STRONG><a name="[97]"></a>HAL_DMA_Abort_IT</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, stm32f4xx_hal_dma.o(i.HAL_DMA_Abort_IT))
+<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
 </UL>
 
 <P><STRONG><a name="[73]"></a>HAL_DMA_IRQHandler</STRONG> (Thumb, 412 bytes, Stack size 32 bytes, stm32f4xx_hal_dma.o(i.HAL_DMA_IRQHandler))
@@ -518,7 +518,7 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_CalcBaseAndBitshift
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_MspInit
 </UL>
 
@@ -527,7 +527,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit_DMA
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_Receive_DMA
 </UL>
@@ -536,16 +536,15 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_MspInit
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
 <P><STRONG><a name="[94]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TxCpltCallback
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TxCpltCallback
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
 <P><STRONG><a name="[76]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_GetTick))
@@ -553,8 +552,8 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_EnableOverDrive
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_DMATransmitCplt
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
@@ -602,9 +601,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 
-<P><STRONG><a name="[9c]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
+<P><STRONG><a name="[9b]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 </UL>
 
 <P><STRONG><a name="[83]"></a>HAL_NVIC_SetPriority</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_SetPriority))
@@ -612,10 +611,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
@@ -692,7 +691,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling_resume
 </UL>
 
-<P><STRONG><a name="[a9]"></a>HAL_SAI_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_sai.o(i.HAL_SAI_ErrorCallback))
+<P><STRONG><a name="[a8]"></a>HAL_SAI_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_sai.o(i.HAL_SAI_ErrorCallback))
 <BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMAError
 </UL>
 
@@ -704,7 +703,7 @@ Global Symbols
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_GetInputClock
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_BlockSynchroConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SAI1_Init
+<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SAI1_Init
 </UL>
 
 <P><STRONG><a name="[8b]"></a>HAL_SAI_MspInit</STRONG> (Thumb, 168 bytes, Stack size 56 bytes, stm32f4xx_hal_msp.o(i.HAL_SAI_MspInit))
@@ -727,16 +726,13 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling_init
 </UL>
 
-<P><STRONG><a name="[93]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = HAL_SAI_RxCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
-</UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit_DMA
+<P><STRONG><a name="[a9]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxCpltCallback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_SAI_RxCpltCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxCplt
 </UL>
 
-<P><STRONG><a name="[96]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxHalfCpltCallback))
+<P><STRONG><a name="[93]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxHalfCpltCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = HAL_SAI_RxHalfCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -745,42 +741,42 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxHalfCplt
 </UL>
 
-<P><STRONG><a name="[99]"></a>HAL_SPI_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_ErrorCallback))
-<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
+<P><STRONG><a name="[98]"></a>HAL_SPI_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_ErrorCallback))
+<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_DMATransmitCplt
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_DMAError
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_DMAAbortOnError
 </UL>
 
-<P><STRONG><a name="[97]"></a>HAL_SPI_IRQHandler</STRONG> (Thumb, 208 bytes, Stack size 16 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_IRQHandler))
+<P><STRONG><a name="[96]"></a>HAL_SPI_IRQHandler</STRONG> (Thumb, 208 bytes, Stack size 16 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_SPI_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI2_IRQHandler
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[9a]"></a>HAL_SPI_Init</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_Init))
+<P><STRONG><a name="[99]"></a>HAL_SPI_Init</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI2_Init
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI2_Init
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[9b]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 244 bytes, Stack size 56 bytes, stm32f4xx_hal_msp.o(i.HAL_SPI_MspInit))
+<P><STRONG><a name="[9a]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 244 bytes, Stack size 56 bytes, stm32f4xx_hal_msp.o(i.HAL_SPI_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 </UL>
 
 <P><STRONG><a name="[95]"></a>HAL_SPI_Transmit_DMA</STRONG> (Thumb, 200 bytes, Stack size 16 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_Transmit_DMA))
@@ -788,11 +784,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
 </UL>
 
-<P><STRONG><a name="[9d]"></a>HAL_SPI_TxCpltCallback</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HAL_SPI_TxCpltCallback))
+<P><STRONG><a name="[9c]"></a>HAL_SPI_TxCpltCallback</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HAL_SPI_TxCpltCallback))
 <BR><BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_DMATransmitCplt
@@ -806,8 +801,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[9f]"></a>HAL_SYSTICK_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_Callback))
-<BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
+<P><STRONG><a name="[9e]"></a>HAL_SYSTICK_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_Callback))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
 </UL>
 
 <P><STRONG><a name="[82]"></a>HAL_SYSTICK_Config</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_Config))
@@ -819,10 +814,10 @@ Global Symbols
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
-<P><STRONG><a name="[9e]"></a>HAL_SYSTICK_IRQHandler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler))
+<P><STRONG><a name="[9d]"></a>HAL_SYSTICK_IRQHandler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_SYSTICK_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Callback
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Callback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
@@ -831,7 +826,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAError
 </UL>
 
-<P><STRONG><a name="[a0]"></a>HAL_UART_Init</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Init))
+<P><STRONG><a name="[9f]"></a>HAL_UART_Init</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
@@ -847,11 +842,11 @@ Global Symbols
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_HalfDuplex_Init
 </UL>
 
-<P><STRONG><a name="[a1]"></a>HAL_UART_Receive_DMA</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Receive_DMA))
+<P><STRONG><a name="[a0]"></a>HAL_UART_Receive_DMA</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Receive_DMA))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = HAL_UART_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
@@ -867,10 +862,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMARxHalfCplt
 </UL>
 
-<P><STRONG><a name="[a2]"></a>HAL_UART_Transmit</STRONG> (Thumb, 186 bytes, Stack size 32 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Transmit))
+<P><STRONG><a name="[a1]"></a>HAL_UART_Transmit</STRONG> (Thumb, 186 bytes, Stack size 32 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Transmit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -913,14 +908,14 @@ Global Symbols
 <P><STRONG><a name="[2d]"></a>SPI1_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SPI1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SPI1_IRQHandler &rArr; HAL_SPI_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f446xx.o(RESET)
 </UL>
 <P><STRONG><a name="[2e]"></a>SPI2_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SPI2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SPI2_IRQHandler &rArr; HAL_SPI_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f446xx.o(RESET)
 </UL>
@@ -930,7 +925,7 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SysTick_Handler &rArr; HAL_SYSTICK_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f446xx.o(RESET)
@@ -964,7 +959,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_MspInit
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 </UL>
@@ -983,7 +978,7 @@ Global Symbols
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling_resume
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling_pause
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling_init
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2_Stream5_IRQHandler
@@ -992,7 +987,7 @@ Global Symbols
 <P><STRONG><a name="[bd]"></a>app_control_init</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, mm_app_control.o(i.app_control_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = app_control_init &rArr; HAL_UART_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
+<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_DMA
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_control_function
@@ -1001,18 +996,18 @@ Global Symbols
 <P><STRONG><a name="[60]"></a>main</STRONG> (Thumb, 158 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_RCC_GetSysClockFreq &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
+<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_HalfDuplex_Init
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI2_Init
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SAI1_Init
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI2_Init
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SAI1_Init
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_control_init
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_Receive_DMA
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1043,7 +1038,7 @@ Global Symbols
 <P><STRONG><a name="[b9]"></a>storage_init</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, mm_app_storage.o(i.storage_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = storage_init &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_control_function
 </UL>
@@ -1059,16 +1054,16 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[a4]"></a>MX_DMA_Init</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, main.o(i.MX_DMA_Init))
+<P><STRONG><a name="[a3]"></a>MX_DMA_Init</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, main.o(i.MX_DMA_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = MX_DMA_Init &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a5]"></a>MX_GPIO_Init</STRONG> (Thumb, 236 bytes, Stack size 56 bytes, main.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[a4]"></a>MX_GPIO_Init</STRONG> (Thumb, 236 bytes, Stack size 56 bytes, main.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -1077,7 +1072,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a6]"></a>MX_SAI1_Init</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, main.o(i.MX_SAI1_Init))
+<P><STRONG><a name="[a5]"></a>MX_SAI1_Init</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, main.o(i.MX_SAI1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = MX_SAI1_Init &rArr; HAL_SAI_Init &rArr; HAL_SAI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_Init
@@ -1085,18 +1080,18 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a7]"></a>MX_SPI1_Init</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, main.o(i.MX_SPI1_Init))
+<P><STRONG><a name="[a6]"></a>MX_SPI1_Init</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, main.o(i.MX_SPI1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = MX_SPI1_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a8]"></a>MX_SPI2_Init</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(i.MX_SPI2_Init))
+<P><STRONG><a name="[a7]"></a>MX_SPI2_Init</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(i.MX_SPI2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = MX_SPI2_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1105,22 +1100,22 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SAI_DMAError &rArr; SAI_Disable
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_Disable
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_ErrorCallback
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_ErrorCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
 <P><STRONG><a name="[64]"></a>SAI_DMARxCplt</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, stm32f4xx_hal_sai.o(i.SAI_DMARxCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = SAI_DMARxCplt &rArr; HAL_SAI_RxCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SAI_DMARxCplt &rArr; HAL_SAI_RxCpltCallback
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_InterruptFlag
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
 <P><STRONG><a name="[63]"></a>SAI_DMARxHalfCplt</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_hal_sai.o(i.SAI_DMARxHalfCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = SAI_DMARxHalfCplt &rArr; HAL_SAI_RxHalfCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
@@ -1147,14 +1142,14 @@ Local Symbols
 <P><STRONG><a name="[66]"></a>SPI_DMAAbortOnError</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, stm32f4xx_hal_spi.o(i.SPI_DMAAbortOnError))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SPI_DMAAbortOnError
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_spi.o(i.HAL_SPI_IRQHandler)
 </UL>
 <P><STRONG><a name="[69]"></a>SPI_DMAError</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f4xx_hal_spi.o(i.SPI_DMAError))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SPI_DMAError
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_spi.o(i.HAL_SPI_Transmit_DMA)
 </UL>
@@ -1168,8 +1163,8 @@ Local Symbols
 <P><STRONG><a name="[68]"></a>SPI_DMATransmitCplt</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, stm32f4xx_hal_spi.o(i.SPI_DMATransmitCplt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = SPI_DMATransmitCplt &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TxCpltCallback
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TxCpltCallback
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_ErrorCallback
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_CheckFlag_BSY
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
@@ -1220,16 +1215,16 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK2Freq
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_HalfDuplex_Init
 </UL>
 
-<P><STRONG><a name="[a3]"></a>UART_WaitOnFlagUntilTimeout</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, stm32f4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout))
+<P><STRONG><a name="[a2]"></a>UART_WaitOnFlagUntilTimeout</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, stm32f4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
 
 <P><STRONG><a name="[78]"></a>DMA_CalcBaseAndBitshift</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_hal_dma.o(i.DMA_CalcBaseAndBitshift))
