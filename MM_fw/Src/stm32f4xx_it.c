@@ -370,5 +370,16 @@ void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
   HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)SPItestBuffer, 34);
 }
 
+void HAL_SPI_TxHalfCpltCallback(SPI_HandleTypeDef * hspi)
+{
+
+}
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef * hspi)
+{
+  HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_RESET);
+  
+}
+
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
