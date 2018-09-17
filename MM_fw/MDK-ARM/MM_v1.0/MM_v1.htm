@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\MM_v1.0\MM_v1.0]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\MM_v1.0\MM_v1.0</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Sep 17 12:46:03 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Sep 17 14:29:02 2018
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -726,13 +726,11 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling_init
 </UL>
 
-<P><STRONG><a name="[a9]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_SAI_RxCpltCallback
-</UL>
-<BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxCplt
+<P><STRONG><a name="[a9]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HAL_SAI_RxCpltCallback))
+<BR><BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxCplt
 </UL>
 
-<P><STRONG><a name="[93]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxHalfCpltCallback))
+<P><STRONG><a name="[93]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxHalfCpltCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = HAL_SAI_RxHalfCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -1105,7 +1103,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
 <P><STRONG><a name="[64]"></a>SAI_DMARxCplt</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, stm32f4xx_hal_sai.o(i.SAI_DMARxCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SAI_DMARxCplt &rArr; HAL_SAI_RxCpltCallback
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SAI_DMARxCplt
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_InterruptFlag
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
