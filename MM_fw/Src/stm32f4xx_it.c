@@ -350,7 +350,7 @@ void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
   int i;
   for (i=0; i<32; i++)
   {
-    transmitBuffer[i] = (int16_t) tempBuffer[i];
+    transmitBuffer[i] = (int16_t) tempBuffer[i]>>16;
   }
 }
 
@@ -360,7 +360,7 @@ void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
   int i;
   for (i=0; i<32; i++)
   {
-    transmitBuffer[32+i] = (int16_t) tempBuffer[32+i];
+    transmitBuffer[32+i] = (int16_t) tempBuffer[32+i]>>16;
   }
   HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
   HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)transmitBuffer, 64);
