@@ -343,24 +343,53 @@ void DMA2_Stream7_IRQHandler(void)
 
 extern SPI_HandleTypeDef hspi2;
 
-void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
-{
-  //full_transfer_event();
-
-  int i;
-  for (i=0; i<32; i++)
-  {
-    transmitBuffer[i] = (int16_t) tempBuffer[i]>>16;
-  }
-}
+int32_t current=0,prev=0;
 
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
 {
   //half_transfer_event();
   int i;
-  for (i=0; i<32; i++)
+/*   for (i=0; i<32; i++)
   {
     transmitBuffer[32+i] = (int16_t) tempBuffer[32+i]>>16;
+  } */
+
+  for (i=0; i<32; i+=8)
+  {
+    current = tempBuffer[32+i];
+    if ((current > (prev+0x7F))||(current < (prev - 0x7F)))
+    {
+      transmitBuffer[32+i] = 0xFFFF;
+    }else
+    {
+      transmitBuffer[32+i] = 0x0000;
+    }
+    prev = current;
+  }
+  
+}
+
+void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
+{
+  //full_transfer_event();
+
+  int i;
+/*   for (i=0; i<32; i++)
+  {
+    transmitBuffer[i] = (int16_t) tempBuffer[i]>>16;
+  } */
+
+  for (i=0; i<32; i+=8)
+  {
+    current = tempBuffer[i];
+    if ((current > (prev+0x7F))||(current < (prev - 0x7F)))
+    {
+      transmitBuffer[i] = 0xFFFF;
+    }else
+    {
+      transmitBuffer[i] = 0x0000;
+    }
+    prev = current;
   }
   HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
   HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)transmitBuffer, 64);

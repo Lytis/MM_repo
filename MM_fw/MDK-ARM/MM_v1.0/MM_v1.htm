@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\MM_v1.0\MM_v1.0]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\MM_v1.0\MM_v1.0</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Sep 17 14:29:02 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Sep 19 23:44:25 2018
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -543,7 +543,7 @@ Global Symbols
 
 <P><STRONG><a name="[94]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TxCpltCallback
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
@@ -726,15 +726,17 @@ Global Symbols
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling_init
 </UL>
 
-<P><STRONG><a name="[a9]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HAL_SAI_RxCpltCallback))
-<BR><BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxCplt
-</UL>
-
-<P><STRONG><a name="[93]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.HAL_SAI_RxHalfCpltCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = HAL_SAI_RxHalfCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
+<P><STRONG><a name="[93]"></a>HAL_SAI_RxCpltCallback</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, stm32f4xx_it.o(i.HAL_SAI_RxCpltCallback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = HAL_SAI_RxCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit_DMA
+</UL>
+<BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxCplt
+</UL>
+
+<P><STRONG><a name="[a9]"></a>HAL_SAI_RxHalfCpltCallback</STRONG> (Thumb, 70 bytes, Stack size 20 bytes, stm32f4xx_it.o(i.HAL_SAI_RxHalfCpltCallback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = HAL_SAI_RxHalfCpltCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_DMARxHalfCplt
 </UL>
@@ -782,7 +784,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Start_IT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
 </UL>
 
 <P><STRONG><a name="[9c]"></a>HAL_SPI_TxCpltCallback</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HAL_SPI_TxCpltCallback))
@@ -1103,17 +1105,17 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
 <P><STRONG><a name="[64]"></a>SAI_DMARxCplt</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, stm32f4xx_hal_sai.o(i.SAI_DMARxCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SAI_DMARxCplt
+<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = SAI_DMARxCplt &rArr; HAL_SAI_RxCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SAI_InterruptFlag
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
 <P><STRONG><a name="[63]"></a>SAI_DMARxHalfCplt</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_hal_sai.o(i.SAI_DMARxHalfCplt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = SAI_DMARxHalfCplt &rArr; HAL_SAI_RxHalfCpltCallback &rArr; HAL_SPI_Transmit_DMA &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = SAI_DMARxHalfCplt &rArr; HAL_SAI_RxHalfCpltCallback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SAI_RxHalfCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_sai.o(i.HAL_SAI_Receive_DMA)
 </UL>
