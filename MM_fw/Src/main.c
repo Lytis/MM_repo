@@ -67,8 +67,7 @@ DMA_HandleTypeDef hdma_usart6_tx;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
-int16_t SPItestBuffer[260] = {0};
-int32_t tempBuffer[64];
+int32_t tempBuffer[960];
 
 /* USER CODE END PV */
 
@@ -130,17 +129,8 @@ int main(void)
 
   uint8_t msg[] = "app_start\n\r";
   HAL_UART_Transmit(&huart1, (uint8_t*)msg, sizeof(msg), 0xFFFF);
-
-  int i;
-  for (i=0;i<260;i++)
-    SPItestBuffer[i] = i;
   
   app_control_init();
-
-/*   int32_t SAI_test_buffer[SAI_BUFFER_SIZE];
-  HAL_UART_Transmit(&huart1, (uint8_t*)"test1\n\r", sizeof("test1\n\r"), 0xFFFF);
-  HAL_SAI_Receive_DMA(&hsai_BlockA1, (uint8_t*)SAI_test_buffer, SAI_BUFFER_SIZE*4); */
-
 
   /* USER CODE END 2 */
 
@@ -149,25 +139,14 @@ int main(void)
 
   
 
-  HAL_SAI_Receive_DMA(&hsai_BlockA1, (uint8_t*)tempBuffer, 64);
+  HAL_SAI_Receive_DMA(&hsai_BlockA1, (uint8_t*)tempBuffer, 960);
 
-  //int16_t test_2 = 0x5515;
   while (1)
   {
-    //HAL_SPI_Transmit_DMA(&hspi2, (uint8_t*)SPItestBuffer, sizeof(SPItestBuffer)/sizeof(int16_t));
-
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-  /* test_2 = 0;
-  HAL_SPI_Transmit(&hspi2, (uint8_t*)&test_2, 1, 0xFFFF);
-  test_2 = 32767;
-  HAL_SPI_Transmit(&hspi2, (uint8_t*)&test_2, 1, 0xFFFF);
-  test_2 = -32768;
-  HAL_SPI_Transmit(&hspi2, (uint8_t*)&test_2, 1, 0xFFFF);
-  test_2 = -0;
-  HAL_SPI_Transmit(&hspi2, (uint8_t*)&test_2, 1, 0xFFFF);
-  HAL_Delay(1); */
+
 
   }
   /* USER CODE END 3 */
@@ -258,18 +237,18 @@ static void MX_SAI1_Init(void)
   hsai_BlockA1.Init.FirstBit = SAI_FIRSTBIT_MSB;
   hsai_BlockA1.Init.ClockStrobing = SAI_CLOCKSTROBING_FALLINGEDGE;
   hsai_BlockA1.Init.Synchro = SAI_ASYNCHRONOUS;
-  hsai_BlockA1.Init.OutputDrive = SAI_OUTPUTDRIVE_ENABLE;
+  hsai_BlockA1.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLE;
   hsai_BlockA1.Init.NoDivider = SAI_MASTERDIVIDER_ENABLE;
   hsai_BlockA1.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
   hsai_BlockA1.Init.ClockSource = SAI_CLKSOURCE_NA;
-  hsai_BlockA1.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_8K;
+  hsai_BlockA1.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_22K;
   hsai_BlockA1.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
   hsai_BlockA1.Init.MonoStereoMode = SAI_STEREOMODE;
   hsai_BlockA1.Init.CompandingMode = SAI_NOCOMPANDING;
   hsai_BlockA1.FrameInit.FrameLength = 256;
   hsai_BlockA1.FrameInit.ActiveFrameLength = 1;
   hsai_BlockA1.FrameInit.FSDefinition = SAI_FS_STARTFRAME;
-  hsai_BlockA1.FrameInit.FSPolarity = SAI_FS_ACTIVE_LOW;
+  hsai_BlockA1.FrameInit.FSPolarity = SAI_FS_ACTIVE_HIGH;
   hsai_BlockA1.FrameInit.FSOffset = SAI_FS_FIRSTBIT;
   hsai_BlockA1.SlotInit.FirstBitOffset = 0;
   hsai_BlockA1.SlotInit.SlotSize = SAI_SLOTSIZE_32B;

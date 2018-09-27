@@ -45,8 +45,7 @@ extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart6;
 extern SAI_HandleTypeDef hsai_BlockA1;
 
-extern int32_t tempBuffer[64];
-int16_t transmitBuffer[64];
+
 
 /* USER CODE END 0 */
 
@@ -342,31 +341,23 @@ void DMA2_Stream7_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 
 extern SPI_HandleTypeDef hspi2;
+extern int32_t tempBuffer[960];
+int16_t transmitBuffer[690];
+int32_t current[8] = {0},prev[8] = {0};
 
-int32_t current=0,prev=0;
+#define WINDOW    100
 
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
 {
   //half_transfer_event();
   int i;
-/*   for (i=0; i<32; i++)
-  {
-    transmitBuffer[32+i] = (int16_t) tempBuffer[32+i]>>16;
-  } */
 
-  for (i=0; i<32; i+=8)
+  for (i=0; i<480; i++)
   {
-    current = tempBuffer[32+i];
-    if ((current > (prev+0x7F))||(current < (prev - 0x7F)))
-    {
-      transmitBuffer[32+i] = 0xFFFF;
-    }else
-    {
-      transmitBuffer[32+i] = 0x0000;
-    }
-    prev = current;
+    //transmitBuffer[i] = (int16_t)i-320;    //test for transfer validation
+    transmitBuffer[i] = (int16_t)(tempBuffer[i]*8);
   }
-  
+
 }
 
 void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
@@ -374,25 +365,16 @@ void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
   //full_transfer_event();
 
   int i;
-/*   for (i=0; i<32; i++)
-  {
-    transmitBuffer[i] = (int16_t) tempBuffer[i]>>16;
-  } */
 
-  for (i=0; i<32; i+=8)
+
+  for (i=480; i<960; i++)
   {
-    current = tempBuffer[i];
-    if ((current > (prev+0x7F))||(current < (prev - 0x7F)))
-    {
-      transmitBuffer[i] = 0xFFFF;
-    }else
-    {
-      transmitBuffer[i] = 0x0000;
-    }
-    prev = current;
+    //transmitBuffer[i] = (int16_t)i-320;
+    transmitBuffer[i] = (int16_t)(tempBuffer[i]*8);
   }
+
   HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
-  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)transmitBuffer, 64);
+  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t*)transmitBuffer, 960);
 }
 
 void HAL_SPI_TxHalfCpltCallback(SPI_HandleTypeDef * hspi)
@@ -403,7 +385,6 @@ void HAL_SPI_TxHalfCpltCallback(SPI_HandleTypeDef * hspi)
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef * hspi)
 {
   HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_RESET);
-  
 }
 
 /* USER CODE END 1 */
