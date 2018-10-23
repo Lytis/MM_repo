@@ -345,6 +345,8 @@ extern int32_t tempBuffer[960];
 int16_t transmitBuffer[690];
 int32_t current[8] = {0},prev[8] = {0};
 
+int test = 0;
+
 #define WINDOW    100
 
 void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
@@ -356,6 +358,10 @@ void HAL_SAI_RxHalfCpltCallback(SAI_HandleTypeDef * hsai)
   {
     //transmitBuffer[i] = (int16_t)i-320;    //test for transfer validation
     transmitBuffer[i] = (int16_t)(tempBuffer[i]*8);
+    if (test == 1)
+    {
+      transmitBuffer[i] = i;
+    }
   }
 
 }
@@ -371,6 +377,10 @@ void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef * hsai)
   {
     //transmitBuffer[i] = (int16_t)i-320;
     transmitBuffer[i] = (int16_t)(tempBuffer[i]*8);
+    if (test == 1)
+    {
+      transmitBuffer[i] = i;
+    }
   }
 
   HAL_GPIO_WritePin(SPI_1_EN_GPIO_Port, SPI_1_EN_Pin, GPIO_PIN_SET);
