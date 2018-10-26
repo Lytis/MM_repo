@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
+  * @file           : usbd_audio_if.h
+  * @version        : v1.0_Cube
+  * @brief          : Header for usbd_audio_if.c file.
   ******************************************************************************
   * This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
@@ -48,61 +48,122 @@
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H__
-#define __MAIN_H__
-
-/* Includes ------------------------------------------------------------------*/
-
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private define ------------------------------------------------------------*/
-
-#define MIC_2_Pin GPIO_PIN_2
-#define MIC_2_GPIO_Port GPIOC
-#define MIC_4_Pin GPIO_PIN_3
-#define MIC_4_GPIO_Port GPIOC
-#define MIC_6_Pin GPIO_PIN_0
-#define MIC_6_GPIO_Port GPIOA
-#define MIC_8_Pin GPIO_PIN_1
-#define MIC_8_GPIO_Port GPIOA
-#define MIC_7_Pin GPIO_PIN_2
-#define MIC_7_GPIO_Port GPIOA
-#define SPI_1_EN_Pin GPIO_PIN_4
-#define SPI_1_EN_GPIO_Port GPIOA
-#define MIC_5_Pin GPIO_PIN_6
-#define MIC_5_GPIO_Port GPIOA
-#define MIC_3_Pin GPIO_PIN_4
-#define MIC_3_GPIO_Port GPIOC
-#define MIC_1_Pin GPIO_PIN_5
-#define MIC_1_GPIO_Port GPIOC
-#define UART_DIR_Pin GPIO_PIN_7
-#define UART_DIR_GPIO_Port GPIOC
-#define AUDIO_CLK_EN_Pin GPIO_PIN_9
-#define AUDIO_CLK_EN_GPIO_Port GPIOB
-
-/* ########################## Assert Selection ############################## */
-/**
-  * @brief Uncomment the line below to expanse the "assert_param" macro in the 
-  *        HAL drivers code
-  */
-/* #define USE_FULL_ASSERT    1U */
-
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
+#ifndef __USBD_AUDIO_IF_H__
+#define __USBD_AUDIO_IF_H__
 
 #ifdef __cplusplus
  extern "C" {
 #endif
-void _Error_Handler(char *, int);
 
-#define Error_Handler() _Error_Handler(__FILE__, __LINE__)
+/* Includes ------------------------------------------------------------------*/
+#include "usbd_audio.h"
+
+/* USER CODE BEGIN INCLUDE */
+
+/* USER CODE END INCLUDE */
+
+/** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
+  * @brief For Usb device.
+  * @{
+  */
+
+/** @defgroup USBD_AUDIO_IF USBD_AUDIO_IF
+  * @brief Usb audio interface device module.
+  * @{
+  */
+
+/** @defgroup USBD_AUDIO_IF_Exported_Defines USBD_AUDIO_IF_Exported_Defines
+  * @brief Defines.
+  * @{
+  */
+
+/* USER CODE BEGIN EXPORTED_DEFINES */
+
+/* USER CODE END EXPORTED_DEFINES */
+
+/**
+  * @}
+  */
+
+/** @defgroup USBD_AUDIO_IF_Exported_Types USBD_AUDIO_IF_Exported_Types
+  * @brief Types.
+  * @{
+  */
+
+/* USER CODE BEGIN EXPORTED_TYPES */
+
+/* USER CODE END EXPORTED_TYPES */
+
+/**
+  * @}
+  */
+
+/** @defgroup USBD_AUDIO_IF_Exported_Macros USBD_AUDIO_IF_Exported_Macros
+  * @brief Aliases.
+  * @{
+  */
+
+/* USER CODE BEGIN EXPORTED_MACRO */
+
+/* USER CODE END EXPORTED_MACRO */
+
+/**
+  * @}
+  */
+
+/** @defgroup USBD_AUDIO_IF_Exported_Variables USBD_AUDIO_IF_Exported_Variables
+  * @brief Public variables.
+  * @{
+  */
+
+/** AUDIO_IF Interface callback. */
+extern USBD_AUDIO_ItfTypeDef USBD_AUDIO_fops_FS;
+
+/* USER CODE BEGIN EXPORTED_VARIABLES */
+
+/* USER CODE END EXPORTED_VARIABLES */
+
+/**
+  * @}
+  */
+
+/** @defgroup USBD_AUDIO_IF_Exported_FunctionsPrototype USBD_AUDIO_IF_Exported_FunctionsPrototype
+  * @brief Public functions declaration.
+  * @{
+  */
+
+/**
+  * @brief  Manages the DMA full transfer complete event.
+  * @retval None
+  */
+void TransferComplete_CallBack_FS(void);
+
+/**
+  * @brief  Manages the DMA half transfer complete event.
+  * @retval None
+  */
+void HalfTransfer_CallBack_FS(void);
+
+/* USER CODE BEGIN EXPORTED_FUNCTIONS */
+
+/* USER CODE END EXPORTED_FUNCTIONS */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __MAIN_H__ */
+#endif /* __USBD_AUDIO_IF_H__ */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
